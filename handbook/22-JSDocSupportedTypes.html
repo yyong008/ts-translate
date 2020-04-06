@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>二十二、类型检查JavaScript文件 | TypeScript手册</title>
+    <meta name="description" content="TypeScript 学习手册">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/ts-translate/assets/css/0.styles.0a5bcfed.css" as="style"><link rel="preload" href="/ts-translate/assets/js/app.141fbb0f.js" as="script"><link rel="preload" href="/ts-translate/assets/js/2.a069a211.js" as="script"><link rel="preload" href="/ts-translate/assets/js/39.79652b75.js" as="script"><link rel="prefetch" href="/ts-translate/assets/js/10.06950121.js"><link rel="prefetch" href="/ts-translate/assets/js/11.6381239b.js"><link rel="prefetch" href="/ts-translate/assets/js/12.8176b810.js"><link rel="prefetch" href="/ts-translate/assets/js/13.0a03fbf3.js"><link rel="prefetch" href="/ts-translate/assets/js/14.3482aea1.js"><link rel="prefetch" href="/ts-translate/assets/js/15.7831b050.js"><link rel="prefetch" href="/ts-translate/assets/js/16.2e5641fb.js"><link rel="prefetch" href="/ts-translate/assets/js/17.caa1f0c3.js"><link rel="prefetch" href="/ts-translate/assets/js/18.33f52e19.js"><link rel="prefetch" href="/ts-translate/assets/js/19.8756dd76.js"><link rel="prefetch" href="/ts-translate/assets/js/20.cfed5059.js"><link rel="prefetch" href="/ts-translate/assets/js/21.090f26df.js"><link rel="prefetch" href="/ts-translate/assets/js/22.ff9d5ff1.js"><link rel="prefetch" href="/ts-translate/assets/js/23.9732edd0.js"><link rel="prefetch" href="/ts-translate/assets/js/24.0ce34daf.js"><link rel="prefetch" href="/ts-translate/assets/js/25.240c5ec5.js"><link rel="prefetch" href="/ts-translate/assets/js/26.ece5b4f8.js"><link rel="prefetch" href="/ts-translate/assets/js/27.5cea32b1.js"><link rel="prefetch" href="/ts-translate/assets/js/28.4984b1b2.js"><link rel="prefetch" href="/ts-translate/assets/js/29.6cbf69a3.js"><link rel="prefetch" href="/ts-translate/assets/js/3.572305aa.js"><link rel="prefetch" href="/ts-translate/assets/js/30.21d3e389.js"><link rel="prefetch" href="/ts-translate/assets/js/31.e611e503.js"><link rel="prefetch" href="/ts-translate/assets/js/32.5d9d0c75.js"><link rel="prefetch" href="/ts-translate/assets/js/33.2cb939dd.js"><link rel="prefetch" href="/ts-translate/assets/js/34.f373a061.js"><link rel="prefetch" href="/ts-translate/assets/js/35.9d601f8b.js"><link rel="prefetch" href="/ts-translate/assets/js/36.45e2645f.js"><link rel="prefetch" href="/ts-translate/assets/js/37.ec9011fa.js"><link rel="prefetch" href="/ts-translate/assets/js/38.ecaf875b.js"><link rel="prefetch" href="/ts-translate/assets/js/4.202d41bd.js"><link rel="prefetch" href="/ts-translate/assets/js/40.dfeb8b60.js"><link rel="prefetch" href="/ts-translate/assets/js/41.19371e04.js"><link rel="prefetch" href="/ts-translate/assets/js/42.12a43247.js"><link rel="prefetch" href="/ts-translate/assets/js/43.08babc31.js"><link rel="prefetch" href="/ts-translate/assets/js/5.7ad19b7d.js"><link rel="prefetch" href="/ts-translate/assets/js/6.f507dfa3.js"><link rel="prefetch" href="/ts-translate/assets/js/7.61be865b.js"><link rel="prefetch" href="/ts-translate/assets/js/8.b7b7c55c.js"><link rel="prefetch" href="/ts-translate/assets/js/9.59f9442d.js">
+    <link rel="stylesheet" href="/ts-translate/assets/css/0.styles.0a5bcfed.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ts-translate/" class="home-link router-link-active"><!----> <span class="site-name">TypeScript手册</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ts-translate/handbook/" class="nav-link router-link-active">
+  语法
+</a></div><div class="nav-item"><a href="/ts-translate/compilerOptions/" class="nav-link">
+  编译选项
+</a></div><div class="nav-item"><a href="/ts-translate/declarationFiles/" class="nav-link">
+  声明文件
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ts-translate/handbook/" class="nav-link router-link-active">
+  语法
+</a></div><div class="nav-item"><a href="/ts-translate/compilerOptions/" class="nav-link">
+  编译选项
+</a></div><div class="nav-item"><a href="/ts-translate/declarationFiles/" class="nav-link">
+  声明文件
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/ts-translate/handbook/01-Basic.html" class="sidebar-link">一、基本类型</a></li><li><a href="/ts-translate/handbook/02-VariableDecorations.html" class="sidebar-link">二、变量声明</a></li><li><a href="/ts-translate/handbook/03-Interface.html" class="sidebar-link">三、Interface 接口</a></li><li><a href="/ts-translate/handbook/04-Class.html" class="sidebar-link">四、类</a></li><li><a href="/ts-translate/handbook/05-Function.html" class="sidebar-link">五、函数</a></li><li><a href="/ts-translate/handbook/06-Generics.html" class="sidebar-link">六、泛型</a></li><li><a href="/ts-translate/handbook/07-Enums.html" class="sidebar-link">七、枚举</a></li><li><a href="/ts-translate/handbook/08-TypeInference.html" class="sidebar-link">八、类型引用</a></li><li><a href="/ts-translate/handbook/09-TypeCompatibility.html" class="sidebar-link">九、兼容性</a></li><li><a href="/ts-translate/handbook/10-AdvanceTypes.html" class="sidebar-link">十、增强类型</a></li><li><a href="/ts-translate/handbook/11-Symbols.html" class="sidebar-link">十一、Symbol</a></li><li><a href="/ts-translate/handbook/12-IteratorAndGenerators.html" class="sidebar-link">十二、可迭代性 Iterables</a></li><li><a href="/ts-translate/handbook/13-Modules.html" class="sidebar-link">十三、模块</a></li><li><a href="/ts-translate/handbook/14-Namespaces.html" class="sidebar-link">十四、命名空间</a></li><li><a href="/ts-translate/handbook/15-NameSpacesModules.html" class="sidebar-link">十五、命名空间与模块</a></li><li><a href="/ts-translate/handbook/16-ModulesResolution.html" class="sidebar-link">十六、模块解析</a></li><li><a href="/ts-translate/handbook/17-DelarationMerging.html" class="sidebar-link">十七、声明合并</a></li><li><a href="/ts-translate/handbook/18-JSX.html" class="sidebar-link">十八、JSX</a></li><li><a href="/ts-translate/handbook/19-Decorators.html" class="sidebar-link">十九、修饰器</a></li><li><a href="/ts-translate/handbook/20-Mixins.html" class="sidebar-link">二十、混入</a></li><li><a href="/ts-translate/handbook/21-TripleSlashDirectives.html" class="sidebar-link">二十一、三斜线指令</a></li><li><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html" class="active sidebar-link">二十二、类型检查JavaScript文件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#jsdoc类型用于类型信息" class="sidebar-link">JSDoc类型用于类型信息</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#属性是通过类主体中的分配来推断的" class="sidebar-link">属性是通过类主体中的分配来推断的</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#构造函数等效于类" class="sidebar-link">构造函数等效于类</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#支持commonjs模块" class="sidebar-link">支持CommonJS模块</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#类，函数和对象文字是名称空间" class="sidebar-link">类，函数和对象文字是名称空间</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#对象文字是开放式的" class="sidebar-link">对象文字是开放式的</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#空，未定义和空数组初始值设定项的类型为any或any" class="sidebar-link">空，未定义和空数组初始值设定项的类型为any或any []</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#功能参数默认为可选" class="sidebar-link">功能参数默认为可选</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#使用参数推断出的var-args参数声明-arguments" class="sidebar-link">使用参数推断出的Var-args参数声明 arguments</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#未指定的类型参数默认为-any" class="sidebar-link">未指定的类型参数默认为 any</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#支持的jsdoc" class="sidebar-link">支持的JSDoc</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#type" class="sidebar-link">@type</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#casts" class="sidebar-link">Casts</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#导入类型" class="sidebar-link">导入类型</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#param-和-returns" class="sidebar-link">@param 和 @returns</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#typedef，-callback和-param" class="sidebar-link">@typedef，@callback和@param</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#template" class="sidebar-link">@template</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#constructor" class="sidebar-link">@constructor</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#this" class="sidebar-link">@this</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#extends" class="sidebar-link">@extends</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#enum" class="sidebar-link">@enum</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#更多例子" class="sidebar-link">更多例子</a></li><li class="sidebar-sub-header"><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html#已知不支持的模" class="sidebar-link">已知不支持的模</a></li></ul></li><li><a href="/ts-translate/handbook/23-UtilityTypes.html" class="sidebar-link">二十三、联合类型</a></li><li><a href="/ts-translate/handbook/24-TypescriptIgnore.html" class="sidebar-link">二十四、TypeScript 类型忽略</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="二十二、类型检查javascript文件"><a href="#二十二、类型检查javascript文件" class="header-anchor">#</a> 二十二、类型检查JavaScript文件</h1> <p>TypeScript 2.3和更高版本支持通过进行.js文件中的类型检查和报告错误--checkJs。</p> <p>您可以通过添加一些// @ts-nocheck注释来跳过对某些文件的检查。相反，您可以.js通过不添加// @ts-check设置的注释来选择仅检查几个文件--checkJs。您还可以通过添加// @ts-ignore前一行来忽略特定行上的错误。请注意，如果您使用tsconfig.json，则JS检查将遵循严格的标志，例如noImplicitAny，strictNullChecks等。但是，由于JS检查相对宽松，因此将严格标志与之结合可能会令人惊讶。</p> <p>与.js文件相比，在检查工作方式方面存在一些显着差异.ts：</p> <h2 id="jsdoc类型用于类型信息"><a href="#jsdoc类型用于类型信息" class="header-anchor">#</a> JSDoc类型用于类型信息</h2> <p>在.js文件中，通常可以像在.ts文件中一样推断类型。同样，当无法推断类型时，可以使用JSDoc来指定它们，就像在.ts文件中使用类型注释一样。就像Typescript一样，--noImplicitAny会在编译器无法推断类型的地方给您带来错误。（开放式对象文字除外；有关详细信息，请参见下文。）</p> <p>装饰声明的JSDoc注释将用于设置该声明的类型。例如：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">/** @type {number} */</span>
+<span class="token keyword">var</span> x<span class="token punctuation">;</span>
+
+x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>      <span class="token comment">// OK</span>
+x <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  <span class="token comment">// Error: boolean is not assignable to number</span>
+</code></pre></div><p>您可以在下面找到支持的JSDoc模式的完整列表。</p> <h2 id="属性是通过类主体中的分配来推断的"><a href="#属性是通过类主体中的分配来推断的" class="header-anchor">#</a> 属性是通过类主体中的分配来推断的</h2> <p>ES2015没有办法声明类的属性。属性是动态分配的，就像对象文字一样。</p> <p>在.js文件中，编译器从类主体内部的属性分配中推断属性。属性的类型是构造函数中给定的类型，除非未在其中定义，或者构造函数中的类型为undefined或null。在这种情况下，类型是这些分配中所有右侧值的类型的并集。始终假定构造函数中定义的属性存在，而仅在方法，getter或setter中定义的属性被认为是可选</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token punctuation">{</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>constructorOnly <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>constructorUnknown <span class="token operator">=</span> <span class="token keyword">undefined</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">method</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>constructorOnly <span class="token operator">=</span> <span class="token boolean">false</span> <span class="token comment">// error, constructorOnly is a number</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>constructorUnknown <span class="token operator">=</span> <span class="token string">&quot;plunkbat&quot;</span> <span class="token comment">// ok, constructorUnknown is string | undefined</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>methodOnly <span class="token operator">=</span> <span class="token string">'ok'</span>  <span class="token comment">// ok, but methodOnly could also be undefined</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">method2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>methodOnly <span class="token operator">=</span> <span class="token boolean">true</span>  <span class="token comment">// also, ok, methodOnly's type is string | boolean | undefined</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如果属性从未在类主体中设置，则认为它们是未知的。如果您的类具有只能读取的属性，请在构造函数中使用JSDoc添加声明，然后对其进行注释以指定类型。如果稍后将其初始化，您甚至不必提供值：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token punctuation">{</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">/** @type {number | undefined} */</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>prop <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+        <span class="token comment">/** @type {number | undefined} */</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>count<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+c<span class="token punctuation">.</span>prop <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>          <span class="token comment">// OK</span>
+c<span class="token punctuation">.</span>count <span class="token operator">=</span> <span class="token string">&quot;string&quot;</span><span class="token punctuation">;</span>  <span class="token comment">// Error: string is not assignable to number|undefined</span>
+</code></pre></div><h2 id="构造函数等效于类"><a href="#构造函数等效于类" class="header-anchor">#</a> 构造函数等效于类</h2> <p>在ES2015之前，Javascript使用构造函数代替类。编译器支持此模式，并且将构造函数理解为与ES2015类等效。上面描述的属性推断规则的工作方式完全相同。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token constant">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>constructorOnly <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>constructorUnknown <span class="token operator">=</span> <span class="token keyword">undefined</span>
+<span class="token punctuation">}</span>
+<span class="token class-name">C</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">method</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>constructorOnly <span class="token operator">=</span> <span class="token boolean">false</span> <span class="token comment">// error</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>constructorUnknown <span class="token operator">=</span> <span class="token string">&quot;plunkbat&quot;</span> <span class="token comment">// OK, the type is string | undefined</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="支持commonjs模块"><a href="#支持commonjs模块" class="header-anchor">#</a> 支持CommonJS模块</h2> <p>在.js文件中，Typescript了解CommonJS模块格式。分配给出口报关，exports并被module.exports确认为出口报关。同样，将require函数调用识别为模块导入。例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;fs&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// same as `export function readFile`</span>
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span><span class="token function-variable function">readFile</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">f</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>与Typescript的模块支持相比，Javascript中的模块支持在语法上更宽容。支持分配和声明的大多数组合。</p> <h2 id="类，函数和对象文字是名称空间"><a href="#类，函数和对象文字是名称空间" class="header-anchor">#</a> 类，函数和对象文字是名称空间</h2> <p>类是.js文件中的名称空间。这可以用于嵌套类，例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token constant">C</span><span class="token punctuation">.</span><span class="token constant">D</span> <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>而且，对于ES2015之前的代码，可以将其用于模拟静态方法：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">Outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token punctuation">}</span>
+Outer<span class="token punctuation">.</span><span class="token function-variable function">Inner</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>yy <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>它也可以用来创建简单的名称空间：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> ns <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+ns<span class="token punctuation">.</span><span class="token constant">C</span> <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+ns<span class="token punctuation">.</span><span class="token function-variable function">func</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>也允许其他变体：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// IIFE</span>
+<span class="token keyword">var</span> ns <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> n <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ns<span class="token punctuation">.</span><span class="token constant">CONST</span> <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">// defaulting to global</span>
+<span class="token keyword">var</span> assign <span class="token operator">=</span> assign <span class="token operator">||</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// code goes here</span>
+<span class="token punctuation">}</span>
+assign<span class="token punctuation">.</span>extra <span class="token operator">=</span> <span class="token number">1</span>
+</code></pre></div><h2 id="对象文字是开放式的"><a href="#对象文字是开放式的" class="header-anchor">#</a> 对象文字是开放式的</h2> <p>在.ts文件中，用于初始化变量声明的对象文字将其类型赋予声明。不能添加未在原始文字中指定的新成员。该规则在.js文件中放宽；对象文字具有开放式类型（索引签名），该类型允许添加和查找最初未定义的属性。例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span>b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>  <span class="token comment">// Allowed</span>
+</code></pre></div><p>对象文字的行为就好像它们具有一个索引签名一样[x:string]: any，可以将它们视为打开的映射，而不是封闭的对象。</p> <p>与其他特殊的JS检查行为一样，可以通过为变量指定JSDoc类型来更改此行为。例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** @type {{a: number}} */</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span>b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>  <span class="token comment">// Error, type {a: number} does not have property b</span>
+</code></pre></div><h2 id="空，未定义和空数组初始值设定项的类型为any或any"><a href="#空，未定义和空数组初始值设定项的类型为any或any" class="header-anchor">#</a> 空，未定义和空数组初始值设定项的类型为any或any []</h2> <p>即使启用了严格的null检查，使用null或undefined初始化的任何变量，参数或属性的类型也将为any。即使打开了严格的null检查，使用[]初始化的任何变量，参数或属性的类型都将为any []。唯一的例外是具有如上所述的多个初始化程序的属性。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token parameter">i <span class="token operator">=</span> <span class="token keyword">null</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>i<span class="token punctuation">)</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> j <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+    j <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+foo<span class="token punctuation">.</span>l<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>foo<span class="token punctuation">.</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+foo<span class="token punctuation">.</span>l<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&quot;end&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="功能参数默认为可选"><a href="#功能参数默认为可选" class="header-anchor">#</a> 功能参数默认为可选</h2> <p>由于无法在ES2015 Javascript之前的版本中指定参数的可选性，因此.js文件中的所有功能参数均被视为可选。允许调用的参数少于声明的参数数量。</p> <p>重要的是要注意，调用带有太多参数的函数是错误的。</p> <p>例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a <span class="token operator">+</span> <span class="token string">&quot; &quot;</span> <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">bar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// OK, second argument considered optional</span>
+<span class="token function">bar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">bar</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Error, too many arguments</span>
+</code></pre></div><p>JSDoc注释的函数从此规则中排除。使用JSDoc可选参数语法表示可选性。例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @param {string} [somebody] - Somebody's name.
+ */</span>
+<span class="token keyword">function</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token parameter">somebody</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>somebody<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        somebody <span class="token operator">=</span> <span class="token string">'John Doe'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello '</span> <span class="token operator">+</span> somebody<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="使用参数推断出的var-args参数声明-arguments"><a href="#使用参数推断出的var-args参数声明-arguments" class="header-anchor">#</a> 使用参数推断出的Var-args参数声明 arguments</h2> <p>主体具有对引用的arguments引用的函数被隐式地认为具有var-arg参数（即(...arg: any[]) =&gt; any）。使用JSDoc var-arg语法指定参数的类型。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** @param {...number} args */</span>
+<span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token comment">/* numbers */</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> total <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arguments<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      total <span class="token operator">+=</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> total
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="未指定的类型参数默认为-any"><a href="#未指定的类型参数默认为-any" class="header-anchor">#</a> 未指定的类型参数默认为 any</h2> <p>由于在Javascript中没有用于指定通用类型参数的自然语法，因此未指定的类型参数默认为any。</p> <h3 id="在扩展子句中"><a href="#在扩展子句中" class="header-anchor">#</a> 在扩展子句中</h3> <p>例如，React.Component被定义为具有两个类型参数，Props和State。在.js文件中，没有合法的方法在extends子句中指定这些内容。默认情况下，类型参数为any：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>b<span class="token punctuation">;</span> <span class="token comment">// Allowed, since this.props is of type any</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>使用JSDoc @augments明确指定类型。例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @augments {Component&lt;{a: number}, State&gt;}
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>b<span class="token punctuation">;</span> <span class="token comment">// Error: b does not exist on {a:number}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="在jsdoc参考中"><a href="#在jsdoc参考中" class="header-anchor">#</a> 在JSDoc参考中</h3> <p>JSDoc中的未指定类型参数默认为以下任何一个：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** @type{Array} */</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+x<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// OK</span>
+x<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&quot;string&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// OK, x is of type Array&lt;any&gt;</span>
+
+<span class="token comment">/** @type{Array.&lt;number&gt;} */</span>
+<span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+y<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// OK</span>
+y<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&quot;string&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Error, string is not assignable to number</span>
+</code></pre></div><h4 id="在函数调用中"><a href="#在函数调用中" class="header-anchor">#</a> 在函数调用中</h4> <p>对泛型函数的调用使用参数来推断类型参数。有时，此过程无法推断任何类型，主要是由于缺乏推断源；在这些情况下，类型参数将默认为any。例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+p<span class="token punctuation">;</span> <span class="token comment">// Promise&lt;any&gt;;</span>
+</code></pre></div><h2 id="支持的jsdoc"><a href="#支持的jsdoc" class="header-anchor">#</a> 支持的JSDoc</h2> <p>下面的列表概述了使用JSDoc注释在JavaScript文件中提供类型信息时当前支持的结构。</p> <p>请注意，@async尚不支持下面未明确列出的任何标签（例如）。</p> <ul><li><code>@type</code></li> <li><code>@param</code> (or <code>@arg</code> or <code>@argument</code>)</li> <li><code>@returns</code> (or <code>@return</code>)</li> <li><code>@typedef</code></li> <li><code>@callback</code></li> <li><code>@template</code></li> <li><code>@class</code> (or <code>@constructor</code>)</li> <li><code>@this</code></li> <li><code>@extends</code> (or <code>@augments</code>)</li> <li><code>@enum</code></li></ul> <p>含义通常与usejsdoc.org中给出的标记的含义相同，或者是一个超集。以下代码描述了不同之处，并给出了每个标签的一些用法示例。</p> <h2 id="type"><a href="#type" class="header-anchor">#</a> @type</h2> <p>您可以使用“ @type”标记并引用类型名称（在TypeScript声明或JSDoc“ @typedef”标记中定义的原始类型）。您可以使用任何Typescript类型以及大多数JSDoc类型。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @type {string}
+ */</span>
+<span class="token keyword">var</span> s<span class="token punctuation">;</span>
+
+<span class="token comment">/** @type {Window} */</span>
+<span class="token keyword">var</span> win<span class="token punctuation">;</span>
+
+<span class="token comment">/** @type {PromiseLike&lt;string&gt;} */</span>
+<span class="token keyword">var</span> promisedString<span class="token punctuation">;</span>
+
+<span class="token comment">// You can specify an HTML Element with DOM properties</span>
+<span class="token comment">/** @type {HTMLElement} */</span>
+<span class="token keyword">var</span> myElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span><span class="token punctuation">;</span>
+element<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>myData <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+</code></pre></div><p>@type 可以指定联合类型-例如，某些内容可以是字符串或布尔值。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @type {(string | boolean)}
+ */</span>
+<span class="token keyword">var</span> sb<span class="token punctuation">;</span>
+</code></pre></div><p>请注意，括号对于联合类型是可选的。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @type {string | boolean}
+ */</span>
+<span class="token keyword">var</span> sb<span class="token punctuation">;</span>
+</code></pre></div><p>您可以使用多种语法来指定数组类型：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** @type {number[]} */</span>
+<span class="token keyword">var</span> ns<span class="token punctuation">;</span>
+<span class="token comment">/** @type {Array.&lt;number&gt;} */</span>
+<span class="token keyword">var</span> nds<span class="token punctuation">;</span>
+<span class="token comment">/** @type {Array&lt;number&gt;} */</span>
+<span class="token keyword">var</span> nas<span class="token punctuation">;</span>
+</code></pre></div><p>您还可以指定对象文字类型。例如，具有属性“ a”（字符串）和“ b”（数字）的对象使用以下语法：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** @type {{ a: string, b: number }} */</span>
+<span class="token keyword">var</span> var9<span class="token punctuation">;</span>
+</code></pre></div><p>您可以使用标准的JSDoc语法或Typescript语法，使用字符串和数字索引签名指定类似地图的对象和类似于数组的对象。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * A map-like object that maps arbitrary `string` properties to `number`s.
+ *
+ * @type {Object.&lt;string, number&gt;}
+ */</span>
+<span class="token keyword">var</span> stringToNumber<span class="token punctuation">;</span>
+
+<span class="token comment">/** @type {Object.&lt;number, object&gt;} */</span>
+<span class="token keyword">var</span> arrayLike<span class="token punctuation">;</span>
+</code></pre></div><p>前面两种类型等同于Typescript类型{ [x: string]: number }和{ [x: number]: any }。编译器理解两种语法。</p> <p>您可以使用Typescript或Closure语法指定函数类型：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** @type {function(string, boolean): number} Closure syntax */</span>
+<span class="token keyword">var</span> sbn<span class="token punctuation">;</span>
+<span class="token comment">/** @type {(s: string, b: boolean) =&gt; number} Typescript syntax */</span>
+<span class="token keyword">var</span> sbn2<span class="token punctuation">;</span>
+</code></pre></div><p>或者，您可以只使用未指定的Function类型：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** @type {Function} */</span>
+<span class="token keyword">var</span> fn7<span class="token punctuation">;</span>
+<span class="token comment">/** @type {function} */</span>
+<span class="token keyword">var</span> fn6<span class="token punctuation">;</span>
+</code></pre></div><p>Closure中的其他类型也可以使用：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @type {*} - can be 'any' type
+ */</span>
+<span class="token keyword">var</span> star<span class="token punctuation">;</span>
+<span class="token comment">/**
+ * @type {?} - unknown type (same as 'any')
+ */</span>
+<span class="token keyword">var</span> question<span class="token punctuation">;</span>
+</code></pre></div><h2 id="casts"><a href="#casts" class="header-anchor">#</a> Casts</h2> <p>Typescript从Closure借用了强制转换语法。这样，您可以通过@type在任何带括号的表达式之前添加标签来将类型转换为其他类型。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @type {number | string}
+ */</span>
+<span class="token keyword">var</span> numberOrString <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.5</span> <span class="token operator">?</span> <span class="token string">&quot;hello&quot;</span> <span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> typeAssertedNumber <span class="token operator">=</span> <span class="token comment">/** @type {number} */</span> <span class="token punctuation">(</span>numberOrString<span class="token punctuation">)</span>
+</code></pre></div><h2 id="导入类型"><a href="#导入类型" class="header-anchor">#</a> 导入类型</h2> <p>您也可以使用导入类型从其他文件导入声明。此语法是Typescript特定的，并且与JSDoc标准不同</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @param p { import(&quot;./a&quot;).Pet }
+ */</span>
+<span class="token keyword">function</span> <span class="token function">walk</span><span class="token punctuation">(</span><span class="token parameter">p</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Walking </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>p<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">...</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>导入类型也可以在类型别名声明中使用：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @typedef { import(&quot;./a&quot;).Pet } Pet
+ */</span>
+
+<span class="token comment">/**
+ * @type {Pet}
+ */</span>
+<span class="token keyword">var</span> myPet<span class="token punctuation">;</span>
+myPet<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+</code></pre></div><p>如果您不知道某个类型的值，或者如果该类型具有烦人的类型，则可以使用import类型从模块获取值的类型：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @type {typeof import(&quot;./a&quot;).x }
+ */</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./a&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+</code></pre></div><h2 id="param-和-returns"><a href="#param-和-returns" class="header-anchor">#</a> @param 和 @returns</h2> <p>@param使用与相同的类型语法@type，但添加一个参数名称。该参数也可以通过用方括号括起来来声明为可选：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Parameters may be declared in a variety of syntactic forms</span>
+<span class="token comment">/**
+ * @param {string}  p1 - A string param.
+ * @param {string=} p2 - An optional param (Closure syntax)
+ * @param {string} [p3] - Another optional param (JSDoc syntax).
+ * @param {string} [p4=&quot;test&quot;] - An optional param with a default value
+ * @return {string} This is the result
+ */</span>
+<span class="token keyword">function</span> <span class="token function">stringsStringStrings</span><span class="token punctuation">(</span><span class="token parameter">p1<span class="token punctuation">,</span> p2<span class="token punctuation">,</span> p3<span class="token punctuation">,</span> p4</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">// TODO</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>同样，对于函数的返回类型：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @return {PromiseLike&lt;string&gt;}
+ */</span>
+<span class="token keyword">function</span> <span class="token function">ps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * @returns {{ a: string, b: number }} - May use '@returns' as well as '@return'
+ */</span>
+<span class="token keyword">function</span> <span class="token function">ab</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div><h2 id="typedef，-callback和-param"><a href="#typedef，-callback和-param" class="header-anchor">#</a> @typedef，@callback和@param</h2> <p>@typedef可以用来定义复杂的类型。类似的语法适用于@param。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @typedef {Object} SpecialType - creates a new type named 'SpecialType'
+ * @property {string} prop1 - a string property of SpecialType
+ * @property {number} prop2 - a number property of SpecialType
+ * @property {number=} prop3 - an optional number property of SpecialType
+ * @prop {number} [prop4] - an optional number property of SpecialType
+ * @prop {number} [prop5=42] - an optional number property of SpecialType with default
+ */</span>
+<span class="token comment">/** @type {SpecialType} */</span>
+<span class="token keyword">var</span> specialTypeObject<span class="token punctuation">;</span>
+</code></pre></div><p>您可以使用object或Object在第一行。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @typedef {object} SpecialType1 - creates a new type named 'SpecialType1'
+ * @property {string} prop1 - a string property of SpecialType1
+ * @property {number} prop2 - a number property of SpecialType1
+ * @property {number=} prop3 - an optional number property of SpecialType1
+ */</span>
+<span class="token comment">/** @type {SpecialType1} */</span>
+<span class="token keyword">var</span> specialTypeObject1<span class="token punctuation">;</span>
+</code></pre></div><p>@param对于一次性类型规范允许类似的语法。请注意，嵌套属性名称必须以参数名称为前缀：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @param {Object} options - The shape is the same as SpecialType above
+ * @param {string} options.prop1
+ * @param {number} options.prop2
+ * @param {number=} options.prop3
+ * @param {number} [options.prop4]
+ * @param {number} [options.prop5=42]
+ */</span>
+<span class="token keyword">function</span> <span class="token function">special</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>prop4 <span class="token operator">||</span> <span class="token number">1001</span><span class="token punctuation">)</span> <span class="token operator">+</span> options<span class="token punctuation">.</span>prop5<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>@callback与相似@typedef，但是它指定了函数类型而不是对象类型：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @callback Predicate
+ * @param {string} data
+ * @param {number} [index]
+ * @returns {boolean}
+ */</span>
+<span class="token comment">/** @type {Predicate} */</span>
+<span class="token keyword">const</span> <span class="token function-variable function">ok</span> <span class="token operator">=</span> <span class="token parameter">s</span> <span class="token operator">=&gt;</span> <span class="token operator">!</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>length <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>当然，任何这些类型都可以使用Typescript语法声明为单行@typedef：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** @typedef {{ prop1: string, prop2: string, prop3?: number }} SpecialType */</span>
+<span class="token comment">/** @typedef {(data: string, index?: number) =&gt; boolean} Predicate */</span>
+</code></pre></div><h2 id="template"><a href="#template" class="header-anchor">#</a> @template</h2> <p>您可以使用@template标记声明泛型类型：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @template T
+ * @param {T} x - A generic parameter that flows through to the return type
+ * @return {T}
+ */</span>
+<span class="token keyword">function</span> <span class="token function">id</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token punctuation">}</span>
+</code></pre></div><p>使用逗号或多个标记来声明多个类型参数：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @template {string} K - K must be a string or string literal
+ * @template {{ serious(): string }} Seriousalizable - must have a serious method
+ * @param {K} key
+ * @param {Seriousalizable} object
+ */</span>
+<span class="token keyword">function</span> <span class="token function">seriousalize</span><span class="token punctuation">(</span><span class="token parameter">key<span class="token punctuation">,</span> object</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ????</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="constructor"><a href="#constructor" class="header-anchor">#</a> @constructor</h2> <p>编译器根据此属性分配推断构造函数，但如果添加@constructor标签，则可以使检查更严格，建议更好：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @constructor
+ * @param {number} data
+ */</span>
+<span class="token keyword">function</span> <span class="token constant">C</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">initialize</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Should error, initializer expects a string</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/**
+ * @param {string} s
+ */</span>
+<span class="token class-name">C</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">initialize</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>size <span class="token operator">=</span> s<span class="token punctuation">.</span>length
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token constant">C</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// C should only be called with new</span>
+</code></pre></div><p>随着@constructor，this在构造函数中托运C，所以你会得到您的建议，initialize如果你传递了一些方法和错误。如果您调用C而不是构造它，也会得到一个错误。</p> <p>不幸的是，这意味着不能调用的构造函数也不能使用@constructor。</p> <h2 id="this"><a href="#this" class="header-anchor">#</a> @this</h2> <p>编译器通常可以确定this何时可以使用某些上下文。否则，您可以显式指定thiswith 的类型@this：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @this {HTMLElement}
+ * @param {*} e
+ */</span>
+<span class="token keyword">function</span> <span class="token function">callbackForLater</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>clientHeight <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token comment">// should be fine!</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="extends"><a href="#extends" class="header-anchor">#</a> @extends</h2> <p>当Javascript类扩展通用基类时，没有地方指定类型参数应该是什么。该@extends标签提供该类型参数的地方：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @template T
+ * @extends {Set&lt;T&gt;}
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">SortableSet</span> <span class="token keyword">extends</span> <span class="token class-name">Set</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>请注意，@extends仅适用于类。当前，构造函数无法扩展类。</p> <h2 id="enum"><a href="#enum" class="header-anchor">#</a> @enum</h2> <p>该@enum标签允许你创建一个对象文字，其成员都是指定类型的。与Javascript中的大多数对象文字不同，它不允许其他成员。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** @enum {number} */</span>
+<span class="token keyword">const</span> JSDocState <span class="token operator">=</span> <span class="token punctuation">{</span>
+  BeginningOfLine<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  SawAsterisk<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  SavingComments<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>请注意，@enum它与Typescript的完全不同，并且比Typescript的简单得多enum。但是，与Typescript的枚举不同，它@enum可以具有任何类型：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/** @enum {function(number): number} */</span>
+<span class="token keyword">const</span> Math <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">add1</span><span class="token operator">:</span> <span class="token parameter">n</span> <span class="token operator">=&gt;</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">id</span><span class="token operator">:</span> <span class="token parameter">n</span> <span class="token operator">=&gt;</span> <span class="token operator">-</span>n<span class="token punctuation">,</span>
+  <span class="token function-variable function">sub1</span><span class="token operator">:</span> <span class="token parameter">n</span> <span class="token operator">=&gt;</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="更多例子"><a href="#更多例子" class="header-anchor">#</a> 更多例子</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> someObj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">/**
+   * @param {string} param1 - Docs on property assignments work
+   */</span>
+  <span class="token function-variable function">x</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">param1</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * As do docs on variable assignments
+ * @return {Window}
+ */</span>
+<span class="token keyword">let</span> <span class="token function-variable function">someFunc</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * And class methods
+ * @param {string} greeting The greeting to use
+ */</span>
+<span class="token class-name">Foo</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">sayHi</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">greeting</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Hi!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * And arrow functions expressions
+ * @param {number} x - A multiplier
+ */</span>
+<span class="token keyword">let</span> <span class="token function-variable function">myArrow</span> <span class="token operator">=</span> <span class="token parameter">x</span> <span class="token operator">=&gt;</span> x <span class="token operator">*</span> x<span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Which means it works for stateless function components in JSX too
+ * @param {{a: string, b: number}} test - Some param
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">fc</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">test</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span>test<span class="token punctuation">.</span>a<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * A parameter can be a class constructor, using Closure syntax.
+ *
+ * @param {{new(...args: any[]): object}} C - The class to register
+ */</span>
+<span class="token keyword">function</span> <span class="token function">registerClass</span><span class="token punctuation">(</span><span class="token parameter"><span class="token constant">C</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * @param {...string} p1 - A 'rest' arg (array) of strings. (treated as 'any')
+ */</span>
+<span class="token keyword">function</span> <span class="token function">fn10</span><span class="token punctuation">(</span><span class="token parameter">p1</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * @param {...string} p1 - A 'rest' arg (array) of strings. (treated as 'any')
+ */</span>
+<span class="token keyword">function</span> <span class="token function">fn9</span><span class="token punctuation">(</span><span class="token parameter">p1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> p1<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="已知不支持的模"><a href="#已知不支持的模" class="header-anchor">#</a> 已知不支持的模</h2> <p>除非对象也创建类型（如构造函数），否则将值空间中的对象称为类型是行不通的。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">aNormalFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+<span class="token comment">/**
+ * @type {aNormalFunction}
+ */</span>
+<span class="token keyword">var</span> wrong<span class="token punctuation">;</span>
+<span class="token comment">/**
+ * Use 'typeof' instead:
+ * @type {typeof aNormalFunction}
+ */</span>
+<span class="token keyword">var</span> right<span class="token punctuation">;</span>
+</code></pre></div><p>Postfix等于对象文字类型中的属性类型，但未指定可选属性：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @type {{ a: string, b: number= }}
+ */</span>
+<span class="token keyword">var</span> wrong<span class="token punctuation">;</span>
+<span class="token comment">/**
+ * Use postfix question on the property name instead:
+ * @type {{ a: string, b?: number }}
+ */</span>
+<span class="token keyword">var</span> right<span class="token punctuation">;</span>
+
+</code></pre></div><p>可空类型只有strictNullChecks在启用时才有意义：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @type {?number}
+ * With strictNullChecks: true -- number | null
+ * With strictNullChecks: off  -- number
+ */</span>
+<span class="token keyword">var</span> nullable<span class="token punctuation">;</span>
+</code></pre></div><p>非空类型没有任何意义，它们被当作原始类型对待：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * @type {!number}
+ * Just has type number
+ */</span>
+<span class="token keyword">var</span> normal<span class="token punctuation">;</span>
+</code></pre></div><p>与JSDoc的类型系统不同，Typescript仅允许您将类型标记为包含null或不包含null。没有显式的不可为空性—如果strictNullChecks启用，则number不可为空。如果关闭，则可number以为空。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/7/2020, 3:48:55 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/ts-translate/handbook/21-TripleSlashDirectives.html" class="prev">
+        二十一、三斜线指令
+      </a></span> <span class="next"><a href="/ts-translate/handbook/23-UtilityTypes.html">
+        二十三、联合类型
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/ts-translate/assets/js/app.141fbb0f.js" defer></script><script src="/ts-translate/assets/js/2.a069a211.js" defer></script><script src="/ts-translate/assets/js/39.79652b75.js" defer></script>
+  </body>
+</html>

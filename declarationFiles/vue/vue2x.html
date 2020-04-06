@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue2x | TypeScript手册</title>
+    <meta name="description" content="TypeScript 学习手册">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/ts-translate/assets/css/0.styles.0a5bcfed.css" as="style"><link rel="preload" href="/ts-translate/assets/js/app.141fbb0f.js" as="script"><link rel="preload" href="/ts-translate/assets/js/2.a069a211.js" as="script"><link rel="preload" href="/ts-translate/assets/js/15.7831b050.js" as="script"><link rel="prefetch" href="/ts-translate/assets/js/10.06950121.js"><link rel="prefetch" href="/ts-translate/assets/js/11.6381239b.js"><link rel="prefetch" href="/ts-translate/assets/js/12.8176b810.js"><link rel="prefetch" href="/ts-translate/assets/js/13.0a03fbf3.js"><link rel="prefetch" href="/ts-translate/assets/js/14.3482aea1.js"><link rel="prefetch" href="/ts-translate/assets/js/16.2e5641fb.js"><link rel="prefetch" href="/ts-translate/assets/js/17.caa1f0c3.js"><link rel="prefetch" href="/ts-translate/assets/js/18.33f52e19.js"><link rel="prefetch" href="/ts-translate/assets/js/19.8756dd76.js"><link rel="prefetch" href="/ts-translate/assets/js/20.cfed5059.js"><link rel="prefetch" href="/ts-translate/assets/js/21.090f26df.js"><link rel="prefetch" href="/ts-translate/assets/js/22.ff9d5ff1.js"><link rel="prefetch" href="/ts-translate/assets/js/23.9732edd0.js"><link rel="prefetch" href="/ts-translate/assets/js/24.0ce34daf.js"><link rel="prefetch" href="/ts-translate/assets/js/25.240c5ec5.js"><link rel="prefetch" href="/ts-translate/assets/js/26.ece5b4f8.js"><link rel="prefetch" href="/ts-translate/assets/js/27.5cea32b1.js"><link rel="prefetch" href="/ts-translate/assets/js/28.4984b1b2.js"><link rel="prefetch" href="/ts-translate/assets/js/29.6cbf69a3.js"><link rel="prefetch" href="/ts-translate/assets/js/3.572305aa.js"><link rel="prefetch" href="/ts-translate/assets/js/30.21d3e389.js"><link rel="prefetch" href="/ts-translate/assets/js/31.e611e503.js"><link rel="prefetch" href="/ts-translate/assets/js/32.5d9d0c75.js"><link rel="prefetch" href="/ts-translate/assets/js/33.2cb939dd.js"><link rel="prefetch" href="/ts-translate/assets/js/34.f373a061.js"><link rel="prefetch" href="/ts-translate/assets/js/35.9d601f8b.js"><link rel="prefetch" href="/ts-translate/assets/js/36.45e2645f.js"><link rel="prefetch" href="/ts-translate/assets/js/37.ec9011fa.js"><link rel="prefetch" href="/ts-translate/assets/js/38.ecaf875b.js"><link rel="prefetch" href="/ts-translate/assets/js/39.79652b75.js"><link rel="prefetch" href="/ts-translate/assets/js/4.202d41bd.js"><link rel="prefetch" href="/ts-translate/assets/js/40.dfeb8b60.js"><link rel="prefetch" href="/ts-translate/assets/js/41.19371e04.js"><link rel="prefetch" href="/ts-translate/assets/js/42.12a43247.js"><link rel="prefetch" href="/ts-translate/assets/js/43.08babc31.js"><link rel="prefetch" href="/ts-translate/assets/js/5.7ad19b7d.js"><link rel="prefetch" href="/ts-translate/assets/js/6.f507dfa3.js"><link rel="prefetch" href="/ts-translate/assets/js/7.61be865b.js"><link rel="prefetch" href="/ts-translate/assets/js/8.b7b7c55c.js"><link rel="prefetch" href="/ts-translate/assets/js/9.59f9442d.js">
+    <link rel="stylesheet" href="/ts-translate/assets/css/0.styles.0a5bcfed.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ts-translate/" class="home-link router-link-active"><!----> <span class="site-name">TypeScript手册</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ts-translate/handbook/" class="nav-link">
+  语法
+</a></div><div class="nav-item"><a href="/ts-translate/compilerOptions/" class="nav-link">
+  编译选项
+</a></div><div class="nav-item"><a href="/ts-translate/declarationFiles/" class="nav-link router-link-active">
+  声明文件
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ts-translate/handbook/" class="nav-link">
+  语法
+</a></div><div class="nav-item"><a href="/ts-translate/compilerOptions/" class="nav-link">
+  编译选项
+</a></div><div class="nav-item"><a href="/ts-translate/declarationFiles/" class="nav-link router-link-active">
+  声明文件
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ECMAScripts 声明文件</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>框架声明文件</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ts-translate/declarationFiles/react/" class="sidebar-link">React</a></li><li><a href="/ts-translate/declarationFiles/vue/vue2x.html" class="active sidebar-link">Vue2x</a></li><li><a href="/ts-translate/declarationFiles/vue/vue3x.html" class="sidebar-link">Vue3x</a></li><li><a href="/ts-translate/declarationFiles/angular/" class="sidebar-link">Angular</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>如何写声明文件</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue2x"><a href="#vue2x" class="header-anchor">#</a> Vue2x</h1> <p>在 Vue2.x 中声明文件解读</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/7/2020, 3:48:55 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/ts-translate/declarationFiles/react/" class="prev">
+        React
+      </a></span> <span class="next"><a href="/ts-translate/declarationFiles/vue/vue3x.html">
+        Vue3x
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/ts-translate/assets/js/app.141fbb0f.js" defer></script><script src="/ts-translate/assets/js/2.a069a211.js" defer></script><script src="/ts-translate/assets/js/15.7831b050.js" defer></script>
+  </body>
+</html>

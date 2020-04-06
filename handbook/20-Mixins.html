@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>二十、混入 | TypeScript手册</title>
+    <meta name="description" content="TypeScript 学习手册">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/ts-translate/assets/css/0.styles.0a5bcfed.css" as="style"><link rel="preload" href="/ts-translate/assets/js/app.141fbb0f.js" as="script"><link rel="preload" href="/ts-translate/assets/js/2.a069a211.js" as="script"><link rel="preload" href="/ts-translate/assets/js/37.ec9011fa.js" as="script"><link rel="prefetch" href="/ts-translate/assets/js/10.06950121.js"><link rel="prefetch" href="/ts-translate/assets/js/11.6381239b.js"><link rel="prefetch" href="/ts-translate/assets/js/12.8176b810.js"><link rel="prefetch" href="/ts-translate/assets/js/13.0a03fbf3.js"><link rel="prefetch" href="/ts-translate/assets/js/14.3482aea1.js"><link rel="prefetch" href="/ts-translate/assets/js/15.7831b050.js"><link rel="prefetch" href="/ts-translate/assets/js/16.2e5641fb.js"><link rel="prefetch" href="/ts-translate/assets/js/17.caa1f0c3.js"><link rel="prefetch" href="/ts-translate/assets/js/18.33f52e19.js"><link rel="prefetch" href="/ts-translate/assets/js/19.8756dd76.js"><link rel="prefetch" href="/ts-translate/assets/js/20.cfed5059.js"><link rel="prefetch" href="/ts-translate/assets/js/21.090f26df.js"><link rel="prefetch" href="/ts-translate/assets/js/22.ff9d5ff1.js"><link rel="prefetch" href="/ts-translate/assets/js/23.9732edd0.js"><link rel="prefetch" href="/ts-translate/assets/js/24.0ce34daf.js"><link rel="prefetch" href="/ts-translate/assets/js/25.240c5ec5.js"><link rel="prefetch" href="/ts-translate/assets/js/26.ece5b4f8.js"><link rel="prefetch" href="/ts-translate/assets/js/27.5cea32b1.js"><link rel="prefetch" href="/ts-translate/assets/js/28.4984b1b2.js"><link rel="prefetch" href="/ts-translate/assets/js/29.6cbf69a3.js"><link rel="prefetch" href="/ts-translate/assets/js/3.572305aa.js"><link rel="prefetch" href="/ts-translate/assets/js/30.21d3e389.js"><link rel="prefetch" href="/ts-translate/assets/js/31.e611e503.js"><link rel="prefetch" href="/ts-translate/assets/js/32.5d9d0c75.js"><link rel="prefetch" href="/ts-translate/assets/js/33.2cb939dd.js"><link rel="prefetch" href="/ts-translate/assets/js/34.f373a061.js"><link rel="prefetch" href="/ts-translate/assets/js/35.9d601f8b.js"><link rel="prefetch" href="/ts-translate/assets/js/36.45e2645f.js"><link rel="prefetch" href="/ts-translate/assets/js/38.ecaf875b.js"><link rel="prefetch" href="/ts-translate/assets/js/39.79652b75.js"><link rel="prefetch" href="/ts-translate/assets/js/4.202d41bd.js"><link rel="prefetch" href="/ts-translate/assets/js/40.dfeb8b60.js"><link rel="prefetch" href="/ts-translate/assets/js/41.19371e04.js"><link rel="prefetch" href="/ts-translate/assets/js/42.12a43247.js"><link rel="prefetch" href="/ts-translate/assets/js/43.08babc31.js"><link rel="prefetch" href="/ts-translate/assets/js/5.7ad19b7d.js"><link rel="prefetch" href="/ts-translate/assets/js/6.f507dfa3.js"><link rel="prefetch" href="/ts-translate/assets/js/7.61be865b.js"><link rel="prefetch" href="/ts-translate/assets/js/8.b7b7c55c.js"><link rel="prefetch" href="/ts-translate/assets/js/9.59f9442d.js">
+    <link rel="stylesheet" href="/ts-translate/assets/css/0.styles.0a5bcfed.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ts-translate/" class="home-link router-link-active"><!----> <span class="site-name">TypeScript手册</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ts-translate/handbook/" class="nav-link router-link-active">
+  语法
+</a></div><div class="nav-item"><a href="/ts-translate/compilerOptions/" class="nav-link">
+  编译选项
+</a></div><div class="nav-item"><a href="/ts-translate/declarationFiles/" class="nav-link">
+  声明文件
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ts-translate/handbook/" class="nav-link router-link-active">
+  语法
+</a></div><div class="nav-item"><a href="/ts-translate/compilerOptions/" class="nav-link">
+  编译选项
+</a></div><div class="nav-item"><a href="/ts-translate/declarationFiles/" class="nav-link">
+  声明文件
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/ts-translate/handbook/01-Basic.html" class="sidebar-link">一、基本类型</a></li><li><a href="/ts-translate/handbook/02-VariableDecorations.html" class="sidebar-link">二、变量声明</a></li><li><a href="/ts-translate/handbook/03-Interface.html" class="sidebar-link">三、Interface 接口</a></li><li><a href="/ts-translate/handbook/04-Class.html" class="sidebar-link">四、类</a></li><li><a href="/ts-translate/handbook/05-Function.html" class="sidebar-link">五、函数</a></li><li><a href="/ts-translate/handbook/06-Generics.html" class="sidebar-link">六、泛型</a></li><li><a href="/ts-translate/handbook/07-Enums.html" class="sidebar-link">七、枚举</a></li><li><a href="/ts-translate/handbook/08-TypeInference.html" class="sidebar-link">八、类型引用</a></li><li><a href="/ts-translate/handbook/09-TypeCompatibility.html" class="sidebar-link">九、兼容性</a></li><li><a href="/ts-translate/handbook/10-AdvanceTypes.html" class="sidebar-link">十、增强类型</a></li><li><a href="/ts-translate/handbook/11-Symbols.html" class="sidebar-link">十一、Symbol</a></li><li><a href="/ts-translate/handbook/12-IteratorAndGenerators.html" class="sidebar-link">十二、可迭代性 Iterables</a></li><li><a href="/ts-translate/handbook/13-Modules.html" class="sidebar-link">十三、模块</a></li><li><a href="/ts-translate/handbook/14-Namespaces.html" class="sidebar-link">十四、命名空间</a></li><li><a href="/ts-translate/handbook/15-NameSpacesModules.html" class="sidebar-link">十五、命名空间与模块</a></li><li><a href="/ts-translate/handbook/16-ModulesResolution.html" class="sidebar-link">十六、模块解析</a></li><li><a href="/ts-translate/handbook/17-DelarationMerging.html" class="sidebar-link">十七、声明合并</a></li><li><a href="/ts-translate/handbook/18-JSX.html" class="sidebar-link">十八、JSX</a></li><li><a href="/ts-translate/handbook/19-Decorators.html" class="sidebar-link">十九、修饰器</a></li><li><a href="/ts-translate/handbook/20-Mixins.html" class="active sidebar-link">二十、混入</a></li><li><a href="/ts-translate/handbook/21-TripleSlashDirectives.html" class="sidebar-link">二十一、三斜线指令</a></li><li><a href="/ts-translate/handbook/22-JSDocSupportedTypes.html" class="sidebar-link">二十二、类型检查JavaScript文件</a></li><li><a href="/ts-translate/handbook/23-UtilityTypes.html" class="sidebar-link">二十三、联合类型</a></li><li><a href="/ts-translate/handbook/24-TypescriptIgnore.html" class="sidebar-link">二十四、TypeScript 类型忽略</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="二十、混入"><a href="#二十、混入" class="header-anchor">#</a> 二十、混入</h1> <h1 id="table-of-contents"><a href="#table-of-contents" class="header-anchor">#</a> Table of contents</h1> <p><a href="#introduction">Introduction</a></p> <p><a href="#mixin-sample">Mixin sample</a></p> <p><a href="#understanding-the-sample">Understanding the sample</a></p> <h1 id="introduction"><a href="#introduction" class="header-anchor">#</a> Introduction</h1> <p><b><a href="#table-of-contents">↥ back to top</a></b></p> <p>除了传统的面向对象继承方式，还流行一种通过可重用组件创建类的方式，就是联合另一个简单类的代码。 你可能在Scala等语言里对mixins及其特性已经很熟悉了，但它在JavaScript中也是很流行的。</p> <h1 id="mixin-sample"><a href="#mixin-sample" class="header-anchor">#</a> Mixin sample</h1> <p><b><a href="#table-of-contents">↥ back to top</a></b></p> <p>下面的代码演示了如何在TypeScript里使用混入。 后面我们还会解释这段代码是怎么工作的。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// Disposable Mixin</span>
+<span class="token keyword">class</span> <span class="token class-name">Disposable</span> <span class="token punctuation">{</span>
+    isDisposed<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+    <span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isDisposed <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Activatable Mixin</span>
+<span class="token keyword">class</span> <span class="token class-name">Activatable</span> <span class="token punctuation">{</span>
+    isActive<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+    <span class="token function">activate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isActive <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">deactivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isActive <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SmartObject</span> <span class="token punctuation">{</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>isActive <span class="token operator">+</span> <span class="token string">&quot; : &quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">interact</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">activate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">SmartObject</span> <span class="token keyword">extends</span> <span class="token class-name">Disposable</span><span class="token punctuation">,</span> Activatable <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token function">applyMixins</span><span class="token punctuation">(</span>SmartObject<span class="token punctuation">,</span> <span class="token punctuation">[</span>Disposable<span class="token punctuation">,</span> Activatable<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> smartObj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SmartObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> smartObj<span class="token punctuation">.</span><span class="token function">interact</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">////////////////////////////////////////</span>
+<span class="token comment">// In your runtime library somewhere</span>
+<span class="token comment">////////////////////////////////////////</span>
+
+<span class="token keyword">function</span> <span class="token function">applyMixins</span><span class="token punctuation">(</span><span class="token parameter">derivedCtor<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> baseCtors<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    baseCtors<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">baseCtor</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyNames</span><span class="token punctuation">(</span>baseCtor<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>derivedCtor<span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> name<span class="token punctuation">,</span> Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>baseCtor<span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h1 id="理解这个例子"><a href="#理解这个例子" class="header-anchor">#</a> 理解这个例子</h1> <p><b><a href="#table-of-contents">↥ back to top</a></b></p> <p>代码里首先定义了两个类，它们将做为mixins。 可以看到每个类都只定义了一个特定的行为或功能。 稍后我们使用它们来创建一个新类，同时具有这两种功能。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// Disposable Mixin</span>
+<span class="token keyword">class</span> <span class="token class-name">Disposable</span> <span class="token punctuation">{</span>
+    isDisposed<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+    <span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isDisposed <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Activatable Mixin</span>
+<span class="token keyword">class</span> <span class="token class-name">Activatable</span> <span class="token punctuation">{</span>
+    isActive<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+    <span class="token function">activate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isActive <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">deactivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isActive <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>下面创建一个类，结合了这两个mixins。 下面来看一下具体是怎么操作的：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">class</span> <span class="token class-name">SmartObject</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">SmartObject</span> <span class="token keyword">extends</span> <span class="token class-name">Disposable</span><span class="token punctuation">,</span> Activatable <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div><p>上面您可能会注意到的第一件事是，我们没有尝试在SmartObject类中扩展Disposable和Activateatable，而是在SmartObject接口中对其进行了扩展。 由于<a href="/ts-translate/handbook/Declaration Merging.html">declaration merging</a>，会将SmartObject接口混合到SmartObject类中。</p> <p>这会将类视为接口，并且仅将Disposable和Activatable后面的类型混合到SmartObject类型中，而不是实现中。 这意味着我们必须在类中提供实现。
+除此之外，这正是我们要使用mixins避免的。</p> <p>最后，我们将mixins混合到类实现中。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token function">applyMixins</span><span class="token punctuation">(</span>SmartObject<span class="token punctuation">,</span> <span class="token punctuation">[</span>Disposable<span class="token punctuation">,</span> Activatable<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>最后，我们创建一个辅助函数，它将为我们进行混合。 这将遍历每个mixin的属性，并将它们复制到mixin的目标，并用其实现填充替代属性。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">function</span> <span class="token function">applyMixins</span><span class="token punctuation">(</span><span class="token parameter">derivedCtor<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> baseCtors<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    baseCtors<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">baseCtor</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyNames</span><span class="token punctuation">(</span>baseCtor<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>derivedCtor<span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> name<span class="token punctuation">,</span> Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>baseCtor<span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/7/2020, 3:48:55 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/ts-translate/handbook/19-Decorators.html" class="prev">
+        十九、修饰器
+      </a></span> <span class="next"><a href="/ts-translate/handbook/21-TripleSlashDirectives.html">
+        二十一、三斜线指令
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/ts-translate/assets/js/app.141fbb0f.js" defer></script><script src="/ts-translate/assets/js/2.a069a211.js" defer></script><script src="/ts-translate/assets/js/37.ec9011fa.js" defer></script>
+  </body>
+</html>
